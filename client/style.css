@@ -38,8 +38,9 @@ header {
 /* Main layout container: quests and tasks are next to each other */
 main {
     display: flex;
+    justify-content: center;
     padding: 20px;
-    gap: 30px;
+    gap: 40px;
 }
 
 /* Styling for left and right panel */
@@ -63,6 +64,35 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 6px 0;
+}
+
+/* Content centered */
+#lists,
+#lists-panel h2,
+#tasks-panel h2,
+#new-list-form,
+#new-task-form,
+#delete-list-button {
+    text-align: center;
+}
+
+/* Quests centered in the panel */
+#lists li {
+    width: 70%;
+    background: #333;
+    color: white;
+    padding: 12px;
+    margin: 16px auto;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease;
+    display: block;
+}
+
+/* Lighter gray on hover */
+#lists li:hover {
+    background: #555;
 }
 
 /* Button: show pointer cursor on hover */
