@@ -59,7 +59,7 @@ ul {
 }
 
 /* Task */
-li {
+#tasks li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,6 +133,38 @@ button {
     border: none;
     padding: 6px 10px;
     border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+/* Darker red on hover */
+.delete-quest:hover {
+    background: #c64541;
+}
+
+/* Tasks panel layout */
+#tasks-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Reduce space under "Quest #" */
+#tasks-panel h2 {
+    margin-bottom: 6px;
+}
+
+/* Tasks list does not stretch */
+#tasks {
+    width: 100%;
+}
+
+/* Center Delete Quest button */
+#delete-list-button {
+    display: block;
+    margin: 12px auto;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 12px;
 }
 
 /* Completed task */
