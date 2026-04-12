@@ -1,3 +1,107 @@
+// ** DELETE ONCE BACKEND IS DONE **
+const MOCK_MODE = true; 
+
+let mock_lists = [
+    {
+        _id: "1",
+        title: "Quest 1",
+        entries: [
+            { _id: "a", text: "Collect 200 coins", status: false },
+            { _id: "b", text: "Slay 20 orcs", status: true }
+        ]
+    },
+    {
+        _id: "2",
+        title: "Quest 2",
+        entries: [
+            { _id: "c", text: "Find health potion", status: false }
+        ]
+    }
+];
+
+async function mockApi(path, options) {
+    if (options === undefined) {
+        options = {};
+    }
+
+    // GET /api/lists
+    if (path === "/api/lists" && options.method === undefined) {
+        return mock_lists.map(function(list) {
+            return { _id: list._id, title: list.title };
+        });
+    }
+
+    // GET /api/lists/:id
+    if (path.startsWith("/api/lists/") && options.method === undefined) {
+        const id = path.split("/")[3];
+        return mock_lists.find(function(list) { return list._id === id; });
+    }
+
+    // POST /api/lists
+    if (path === "/api/lists" && options.method === "POST") {
+        const body = JSON.parse(options.body);
+        const new_list = {
+            _id: String(Date.now()),
+            title: body.title,
+            entries: []
+        };
+        mock_lists.push(new_list);
+        return new_list;
+    }
+
+    // POST /api/lists/:id/entries
+    if (path.includes("/entries") && options.method === "POST") {
+        const parts = path.split("/");
+        const list_id = parts[3];
+        const body = JSON.parse(options.body);
+
+        const list = mock_lists.find(function(l) { return l._id === list_id; });
+
+        const new_entry = {
+            _id: String(Date.now()),
+            text: body.text,
+            status: false
+        };
+
+        list.entries.push(new_entry);
+        return list;
+    }
+
+    // PATCH /api/lists/:listId/entries/:entryId
+    if (path.includes("/entries") && options.method === "PATCH") {
+        const parts = path.split("/");
+        const list_id = parts[3];
+        const entry_id = parts[5];
+        const body = JSON.parse(options.body);
+
+        const list = mock_lists.find(function(l) { return l._id === list_id; });
+        const entry = list.entries.find(function(e) { return e._id === entry_id; });
+
+        entry.status = body.status;
+        return list;
+    }
+
+    // DELETE /api/lists/:listId/entries/:entryId
+    if (path.includes("/entries") && options.method === "DELETE") {
+        const parts = path.split("/");
+        const list_id = parts[3];
+        const entry_id = parts[5];
+
+        const list = mock_lists.find(function(l) { return l._id === list_id; });
+        list.entries = list.entries.filter(function(e) { return e._id !== entry_id; });
+
+        return { message: "Task deleted" };
+    }
+
+    // DELETE /api/lists/:id
+    if (path.startsWith("/api/lists/") && options.method === "DELETE") {
+        const id = path.split("/")[3];
+        mock_lists = mock_lists.filter(function(l) { return l._id !== id; });
+        return { message: "List deleted" };
+    }
+}
+// ** END OF DELETE ONCE BACKEND IS DONE **
+
 // current_task_id: id of the currently selected task
 let current_task_id = null;
 
@@ -16,6 +120,12 @@ const delete_list_button = document.getElementById('delete-list-button');
 // Helper function to call the backend API
 // Parameters - path: URL; options: method, body
 async function api(path, options) {
+    // ** DELETE ONCE BACKEND IS DONE ** 
+    if (MOCK_MODE === true) {
+        return mockApi(path, options);
+    }
+    // ** END OF DELETE ONCE BACKEND IS DONE **
+    
     // If there was no method or body, create an empty object
     if (options === undefined) {
         options = {};
