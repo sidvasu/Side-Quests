@@ -226,35 +226,25 @@ async function loadTasks() {
     }
 }
 
-// Create a new task in the database when the user submits the "New Quest" form
-document.getElementById('new-list-form').onsubmit = async function (event) {
-    // Stop the form from refreshing the page
-    event.preventDefault();
 
-    // Find the input box 
-    const input_box = document.getElementById('new-list-title');
+// Add a new quest when the user clicks the "+" button
+document.getElementById("add-list-button").onclick = async function () {
+    // Count how many quests currently exist
+    const lists = await api('/api/lists');
 
-    // Get the text the user typed
-    const user_typed_title = input_box.value;
+    // Create the next quest name automatically
+    const next_number = lists.length + 1;
+    const auto_title = "Quest " + next_number;
 
-    // Prepare the data to send to the server
-    const data_to_send = { text : user_typed_title };
-
-    // Convert the data into JSON text
-    const json_body = JSON.stringify(data_to_send);
-
-    // Send the POST request
-    await api('/api/lists/', {
+    // Send a POST request to create the new quest
+    await api('/api/lists', {
         method: 'POST',
-        body: json_body
+        body: JSON.stringify({title : auto_title})
     });
 
-    // Clear the input box
-    input_box.value = '';
-
-    // Reload the quests, so the new quest appears
+    // Reload the quests, so the new one appears on the left panel
     loadListsFromServer();
-}
+};
 
 
 // Add a new task to the currently selected quest when the user submits the "New Task" form

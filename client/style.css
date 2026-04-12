@@ -100,6 +100,32 @@ button {
     cursor: pointer;
 }
 
+/* Add quest button */
+.add-quest-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e6e6e6;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    margin: 12px auto;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* Lighter gray on hover */
+.add-quest-button:hover {
+    background: #dcdcdc;
+    transform: scale(1.05);
+}
+
+/* Press animation */
+.add-quest-button:active {
+    transform: scale(0.95);
+}
+
 /* Delete quest */
 .delete-quest {
     background: #d9534f;
