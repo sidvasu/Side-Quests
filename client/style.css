@@ -1,0 +1,66 @@
+/* Base styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: white;
+}
+
+/* Header: title on the left and logout button on the right */
+header {
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Main layout container: quests and tasks are next to each other */
+main {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+}
+
+/* Styling for left and right panel */
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+}
+
+/* Lists: remove default bullet points and padding */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Task */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+/* Button: show pointer cursor on hover */
+button {
+    cursor: pointer;
+}
+
+/* Delete quest */
+.delete-quest {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+/* Completed task */
+.completed-task {
+    text-decoration: line-through;
+    color: gray;
+}
