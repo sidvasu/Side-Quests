@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Add title for the browser tab -->
+    <title>Side Quests</title>
+
+    <!-- Link to style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header contains the app title and a logout button -->
+    <header>
+        <h1>Side Quests</h1>
+        <button id="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <!-- Left panel: quest lists -->
+        <section id="lists-panel">
+            <h2>Your Quests</h2>
+
+            <!-- View all quests -->
+            <ul id="lists"></ul>
+
+            <!-- Add a new quest -->
+            <form id="new-list-form">
+                <input
+                    type="text"
+                    id="new-list-title"
+                    placeholder="New Quest Name"
+                    required
+                >
+                <button type="submit">+</button>
+            </form>
+        </section>
+
+        <!-- Right panel: tasks for selected quest -->
+        <section id="tasks-panel">
+            <!-- Quest title -->
+            <h2 id="current-list-title">Select a Quest</h2>
+
+            <!-- Delete quest button -->
+            <button
+                id="delete-list-button"
+                class="danger"
+                style="display: none;"
+            >
+                Delete Quest
+            </button>
+
+            <!-- List of tasks -->
+            <ul id="tasks"></ul>
+
+            <!-- Form to add a new task -->
+            <form id="new-task-form" style="display: none;">
+                <input
+                    type="text"
+                    id="new-task-text"
+                    placeholder="New Task"
+                    required
+                >
+                <button type="submit">+</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Link app.js -->
+    <script src="app.js"></script>
+</body>
+</html>
