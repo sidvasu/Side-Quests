@@ -1,72 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <!-- Add title for the browser tab -->
-    <title>Side Quests</title>
+    <title>Side Quests - Login</title>
 
-    <!-- Link to style.css -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Login box */
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Space under the "Side Quests" title */
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Style for input boxes */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Login button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Header contains the app title and a logout button -->
-    <header>
+    <!-- Login box -->
+    <div class="login-box">
         <h1>Side Quests</h1>
-        <button id="logout-button">Logout</button>
-    </header>
 
-    <main>
-        <!-- Left panel: quest lists -->
-        <section id="lists-panel">
-            <h2>Your Quests</h2>
+        <!-- Username input field -->
+        <input type="text" id="username" placeholder="Username">
 
-            <!-- View all quests -->
-            <ul id="lists"></ul>
+        <!-- Password input field -->
+        <input type="password" id="password" placeholder="Password">
 
-            <!-- Add a new quest -->
-            <form id="new-list-form">
-                <input
-                    type="text"
-                    id="new-list-title"
-                    placeholder="New Quest Name"
-                    required
-                >
-                <button type="submit">+</button>
-            </form>
-        </section>
+        <!-- Login button that redirects to home.html -->
+        <button onclick="login()">Login</button>
+    </div>
 
-        <!-- Right panel: tasks for selected quest -->
-        <section id="tasks-panel">
-            <!-- Quest title -->
-            <h2 id="current-list-title">Select a Quest</h2>
-
-            <!-- Delete quest button -->
-            <button
-                id="delete-list-button"
-                class="delete-quest"
-                style="display: none;"
-            >
-                Delete Quest
-            </button>
-
-            <!-- List of tasks -->
-            <ul id="tasks"></ul>
-
-            <!-- Form to add a new task -->
-            <form id="new-task-form" style="display: none;">
-                <input
-                    type="text"
-                    id="new-task-text"
-                    placeholder="New Task"
-                    required
-                >
-                <button type="submit">+</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Link app.js -->
-    <script src="app.js"></script>
+    <script>
+        function login() {
+            window.location.href = "home.html";
+        }
+    </script>
 </body>
 </html>
