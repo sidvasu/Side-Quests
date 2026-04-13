@@ -194,7 +194,7 @@ input {
 
 /* Delete quest */
 .delete-quest {
-    background: #d9534f;
+    background: #b30000;
     color: white;
     border: none;
     padding: 6px 10px;
@@ -204,7 +204,7 @@ input {
 
 /* Darker red on hover */
 .delete-quest:hover {
-    background: #c64541;
+    background: #a33433;
 }
 
 /* Tasks panel layout */
