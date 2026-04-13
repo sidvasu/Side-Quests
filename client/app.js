@@ -115,6 +115,8 @@ const tasks_inside_quest = document.getElementById('tasks');
 const current_list_title = document.getElementById('current-list-title');
 // Delete quest button
 const delete_list_button = document.getElementById('delete-list-button');
+// Hide the New Task bar until a quest is selected
+document.getElementById('new-task-form').style.visibility = 'hidden';
 
 
 // Helper function to call the backend API
@@ -149,6 +151,9 @@ async function loadListsFromServer() {
     const lists_from_server = await api('/api/lists');  
     list_of_quests.innerHTML = '';
 
+    // Hide the New Task bar until a quest is selected
+    document.getElementById('new-task-form').style.visibility = 'hidden';
+
     // Loop through each list and create a clickable <li>
     for (let i = 0; i < lists_from_server.length; ++i) {
         const list = lists_from_server[i];
@@ -172,7 +177,7 @@ async function clickTask(id, title) {
     current_task_id = id;
     current_list_title.textContent = title;
     delete_list_button.style.display = 'inline-block';
-    document.getElementById('new-task-form').style.display = 'block';
+    document.getElementById('new-task-form').style.visibility = 'visible';
 
     // Load tasks for the quest
     loadTasks();
@@ -321,7 +326,7 @@ delete_list_button.onclick = async function () {
     current_list_title.textContent = 'Select a Quest';
     tasks_inside_quest.innerHTML = '';
     delete_list_button.style.display = 'none';
-    document.getElementById('new-task-form').style.display = 'none';
+    document.getElementById('new-task-form').style.visibility = 'hidden';
 
     // Reload the list of quests on the left panel
     loadListsFromServer();

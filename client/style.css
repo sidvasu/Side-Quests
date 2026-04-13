@@ -128,14 +128,17 @@ button {
     transform: scale(0.95);
 }
 
+/* New Task form container */
 #new-task-form {
     display: flex !important;
+    visibility: hidden;
     align-items: stretch;
     gap: 0;
     justify-content: center;
     margin-top: 10px;
 }
 
+/* Input field styling */
 #new-task-text {
     height: 36px;
     line-height: 36px;
@@ -149,11 +152,13 @@ button {
     align-items: center;
 }
 
+/* Reset default browser padding/margin on all inputs */
 input {
     padding: 0;
     margin: 0;
 }
 
+/* + button styling */
 #new-task-form button {
     width: 36px;
     height: 36px;
@@ -169,6 +174,7 @@ input {
     transition: background 0.2s ease, transform 0.1s ease;
 }
 
+/* Vertical divider line between input and + button */
 #new-task-form button::before {
     content: "";
     position: absolute;
@@ -179,6 +185,7 @@ input {
     background: #ccc;
 }
 
+/* Hover effect for + button */
 #new-task-form button:hover {
     background: #dcdcdc;
     transform: scale(1.05);
