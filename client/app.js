@@ -195,9 +195,9 @@ async function loadTasks() {
         const task_text = document.createElement('span');
         task_text.textContent = task.text;
 
-        // If completed, apply .completed CSS class 
+        // If completed, apply .completed-task CSS class 
         if (task.status === true) {
-            task_text.classList.add('completed');
+            task_text.classList.add('completed-task');
         }
 
         // Checkbox to toggle completion

@@ -98,6 +98,8 @@ ul {
 /* Button: show pointer cursor on hover */
 button {
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 /* Add quest button */
@@ -124,6 +126,62 @@ button {
 /* Press animation */
 .add-quest-button:active {
     transform: scale(0.95);
+}
+
+#new-task-form {
+    display: flex !important;
+    align-items: stretch;
+    gap: 0;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#new-task-text {
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+}
+
+#new-task-form button {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#new-task-form button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #ccc;
+}
+
+#new-task-form button:hover {
+    background: #dcdcdc;
+    transform: scale(1.05);
 }
 
 /* Delete quest */
