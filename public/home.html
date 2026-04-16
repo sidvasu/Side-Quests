@@ -62,9 +62,9 @@
     <script src="app.js"></script>
 
     <script>
-        // Send the user back to the login page
-        document.getElementById("logout-button").onclick = function () {
-            window.location.href = "index.html";
+        document.getElementById("logout-button").onclick = async function () {
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = 'index.html';
         };
     </script>
 </body>

@@ -77,14 +77,57 @@
         <!-- Password input field -->
         <input type="password" id="password" placeholder="Password">
 
+        <!-- Register button -->
+        <button onclick="register()">Register</button>
+
         <!-- Login button that redirects to home.html -->
         <button onclick="login()">Login</button>
+
+        <p id="error-message" style="color: red; display: none;"></p>
     </div>
 
     <script>
-        function login() {
-            window.location.href = "home.html";
+        function getCredentials() {
+            return {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            };
+        }
+
+        function showError(msg) {
+            const el = document.getElementById('error-message');
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+
+        async function login() {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(getCredentials())
+            });
+            const data = await res.json();
+            if (res.ok) {
+                window.location.href = 'home.html';
+            } else {
+                showError(data.error);
+            }
+        }
+
+        async function register() {
+            const res = await fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(getCredentials())
+            });
+            const data = await res.json();
+            if (res.ok) {
+                window.location.href = 'home.html';
+            } else {
+                showError(data.error);
+            }
         }
     </script>
+
 </body>
 </html>
