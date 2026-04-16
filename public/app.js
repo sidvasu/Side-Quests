@@ -1,3 +1,4 @@
+/*
 // ** DELETE ONCE BACKEND IS DONE **
 const MOCK_MODE = true; 
 
@@ -101,6 +102,7 @@ async function mockApi(path, options) {
     }
 }
 // ** END OF DELETE ONCE BACKEND IS DONE **
+*/
 
 // current_task_id: id of the currently selected task
 let current_task_id = null;
@@ -122,25 +124,14 @@ document.getElementById('new-task-form').style.visibility = 'hidden';
 // Helper function to call the backend API
 // Parameters - path: URL; options: method, body
 async function api(path, options) {
-    // ** DELETE ONCE BACKEND IS DONE ** 
-    if (MOCK_MODE === true) {
-        return mockApi(path, options);
-    }
-    // ** END OF DELETE ONCE BACKEND IS DONE **
-    
-    // If there was no method or body, create an empty object
     if (options === undefined) {
         options = {};
     }
-
-    // Sent the request to the server and wait for the response
     const server_response = await fetch(path, {
         headers: { "Content-Type": "application/json" },
         method: options.method,
         body: options.body
     });
-
-    // Convert the server response's JSON into a JavaScript object
     return server_response.json();
 }
 
