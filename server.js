@@ -13,13 +13,13 @@ app.use(session({
     secret: 'change-this-to-a-random-string',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/sidequests' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/Side-Quests' }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }  // 1 day
 }));
 
 // --- Connect to MongoDB ---
 const MONGO_URL = 'mongodb://localhost:27017';
-const DB_NAME = 'sidequests';
+const DB_NAME = 'Side-Quests';
 let db;
 
 MongoClient.connect(MONGO_URL)
