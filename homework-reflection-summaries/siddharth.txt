@@ -1,0 +1,10 @@
+Homework Reflection Summary - Siddharth Vasu
+
+1. I was responsible for the backend functionality, which included API endpoints and server-side functions.
+   This ensured that user input could access and modify the database, and then retrieve results back to the user.
+
+2. I used VS Code as my IDE for developing Side Quests.
+   As for AI agents, I used Claude Code.
+
+3. One challenge I faced was figuring out how to set up transactions with the database in the server side.
+   Another challenge was figuring out how to add authentication to support user accounts.

@@ -1,0 +1,7 @@
+Homework Reflection Summary - Dianella Sy
+
+1. For our project Side Quests, I implemented the user interface based on the wireframe from HW 6: Plan a Project - Phase 1, while my partner handled the backend logic. We organized the work around our strengths and communicated frequently to ensure the frontend and backend connected smoothly.
+
+2. While working on Side Quests, I used VS Code as my IDE, GitHub for version control, and Microsoft Copilot to help debug my UI inconsistencies and interpret documentation. My partner and I also used Discord to share screenshots, test results, and updates as we progressed through our tasks.
+
+3. One challenge I encountered was keeping the UI consistent across pages, especially matching widths, borders, and shadows between the login page and the home interface. Some elements shifted unexpectedly, so I had to debug CSS behaviors like box-sizing and alignment. However, once I understood the root causes, the fixes became much easier, and the UI matched our vision.
